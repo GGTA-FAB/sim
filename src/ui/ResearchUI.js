@@ -1,0 +1,14 @@
+import {LIFESTYLE_REQUIRED,WALLPAPERS} from '../data/lifestyleResearch.js';
+import {RESEARCH_PROJECTS} from '../data/research.js';
+const percent=(r,id)=>r.complete(id)?'100':(r.fraction(id)*100).toFixed(1);
+export class ResearchUI {
+ constructor(game){this.game=game;game.bus.on('RESEARCH_COMPLETED',p=>game.hud.message(`研發完成 · ${p.name}，永久效果已啟用。`));}
+ pc(){const r=this.game.research;if(!r.complete('fun-wallpaper'))return '';return `<div class="pc-wallpaper" data-wallpaper="${r.cosmetics.wallpaper}"><span>我的桌布 · ${WALLPAPERS[r.cosmetics.wallpaper]}</span></div><div class="wallpaper-options">${Object.entries(WALLPAPERS).map(([id,name])=>`<button data-life="wallpaper" data-value="${id}" aria-pressed="${r.cosmetics.wallpaper===id}">${name}</button>`).join('')}</div>`;}
+ render(){const r=this.game.research;const cards=projects=>projects.map(p=>{
+  const done=r.complete(p.id),locked=!r.available(p.id),value=percent(r,p.id),requirement=p.requires?'先完成資深資格 I':'完成 3 項基礎研究後開放';
+  const action=done?'已完成':locked?'未解鎖':r.fraction(p.id)>0?'繼續研發':'開始研發';
+  return `<article class="research-card" data-complete="${done}" data-research-id="${p.id}"><header class="research-heading"><strong>${p.name}</strong><div class="research-controls"><div class="research-meter"><span>${value}%</span><progress max="1" value="${r.fraction(p.id)}" aria-label="${p.name}研發進度"></progress></div><button data-life="research-start" data-value="${p.id}" aria-label="${action}：${p.name}${locked?'，'+requirement:''}" ${done||locked?'disabled':''}>${action}</button></div></header><p class="research-description">${p.description}</p><footer class="research-meta"><small>${done?'已完成 · 永久生效':locked?requirement:`尚需 ${Math.ceil(r.remaining(p.id)/60)} 遊戲分鐘`}</small>${p.location?`<small class="research-location">成果：${p.location}</small>`:''}</footer></article>`;
+ }).join('');
+ return `<details class="research-guide"><summary>研發方式與職階說明</summary><p class="research-intro">選一個項目，坐在自己的電腦持續研發至 100%。可隨時中斷；每個項目的累積百分比跨日保存。研發中世界照常運作，完成才啟用效果。</p><p class="career-research-note">助工編制現在隨職階提升。首七天免考績直接晉升資深；第二週起每 7 個工作日評考績，拿 O 或累積兩次 S+，在第 7 天考核結算時立即升一階；升階後 S+ 重新累積。可在選單查看「職涯 / 年度考績」。舊研發成果保留。</p></details><h3>工作改善 · 每項 4 遊戲小時</h3><div class="research-projects">${cards(RESEARCH_PROJECTS.filter(p=>!p.type&&!p.advanced&&!p.lifestyle&&!p.staffing))}</div><h3>長期研發 · 16 遊戲小時</h3><p>可跨日累積，完成後自動啟用；原有手動派工仍可使用。</p><div class="research-projects">${cards(RESEARCH_PROJECTS.filter(p=>p.advanced))}</div><h3>維修 SOP · 自選優先研究的類型</h3><p>每種類型獨立研發，各需 6 遊戲小時；先選你最想省去的小遊戲，之後可逐項研究。</p><div class="research-projects">${cards(RESEARCH_PROJECTS.filter(p=>p.type))}</div><h3>後期 · 生活改善（20 項）</h3><p>${r.lifestyleUnlocked?'已開放':`先完成任意 ${LIFESTYLE_REQUIRED} 項工作／維修研究（目前 ${r.foundationCount}/${LIFESTYLE_REQUIRED}）`}。每項 30–90 遊戲分鐘，成果永久留在廠區。</p><div class="research-projects">${cards(RESEARCH_PROJECTS.filter(p=>p.lifestyle))}</div>`;
+ }
+}

@@ -1,0 +1,27 @@
+/* Only the action card captures touch; the surrounding scene remains draggable. */
+body:not(:has(#phone:not([hidden]))) #interaction.context-ready{left:50%;right:auto;top:60%;bottom:auto;transform:translate(-50%,-50%);width:min(330px,calc(100vw - 32px));max-width:none;z-index:35;display:grid;gap:7px}
+body:not(:has(#phone:not([hidden]))) #interaction.context-ready #interact,#context-quick{width:100%;min-width:0;max-width:none;min-height:56px;padding:12px 18px;border:2px solid #c4e1cf;border-radius:14px;background:#205f57;color:#fff;font-size:15px;font-weight:700;line-height:1.5;box-shadow:0 5px 22px #10392c45;justify-content:center;text-align:center;touch-action:manipulation}
+body:not(:has(#phone:not([hidden]))) #interaction.context-ready #interact:hover,#context-quick:hover{background:#2e7467}
+body:not(:has(#phone:not([hidden]))) #interaction.context-ready #interact kbd{background:#ffffff22;color:white;border-color:#ffffff55}
+body:not(:has(#phone:not([hidden]))) #interaction.has-quick #interact{background:#f5f8f2f5;color:#30544b;border:1px solid #b5cabc;min-height:44px;font-size:12px;font-weight:400;padding:8px 12px;box-shadow:0 3px 12px #10392c20}
+#interaction.context-ready #gown-hint{display:none}
+body:has(#phone:not([hidden])) #context-quick{display:none}
+body:has(:is(#menu,#career-panel,#life-panel,#assistant-dispatch,#repair,#detail,#lift-panel):not([hidden])) #interaction,body:has(#tutorial-body:not([hidden])) #interaction,body[data-hud-open=true] #interaction,body:has(#minimap-panel.map-expanded) #interaction{visibility:hidden}
+@media(pointer:coarse),(max-width:700px){
+ body:not(:has(#phone:not([hidden]))) #interaction.context-ready{top:57%;width:min(280px,calc(100vw - 40px))}
+ body:not(:has(#phone:not([hidden]))) #interaction.context-ready #interact,#context-quick{min-height:54px;font-size:14px;padding:11px 14px}
+ body:not(:has(#phone:not([hidden]))):has(#interaction.context-ready:not([hidden])) #toast{top:calc(var(--ui-top) + 44px);bottom:auto;max-height:76px}
+}
+@media(max-height:520px) and (orientation:landscape){
+ body:not(:has(#phone:not([hidden]))) #interaction.context-ready{top:61%;width:min(260px,calc(100vw - 320px));min-width:210px;gap:5px}
+ body:not(:has(#phone:not([hidden]))) #interaction.context-ready #interact,#context-quick{min-height:48px;padding:8px 12px;font-size:13px}
+}
+@media(max-width:700px) and (max-height:520px) and (orientation:landscape){body:has(#interaction.context-ready:not([hidden])) #minimap-panel:not(.map-expanded){visibility:hidden}}
+
+@media(max-width:700px) and (max-height:520px) and (orientation:landscape){
+ body:not(:has(#phone:not([hidden]))) #interaction.context-ready{top:max(208px,58%);transform:translateX(-50%)}
+ body:not(:has(#phone:not([hidden]))) #interaction.has-quick #interact span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+}
+
+@media(pointer:coarse),(max-width:700px){body:not(:has(#phone:not([hidden]))):has(#handover-reminder:not([hidden])) #interaction.context-ready{top:calc(50% + 88px);transform:translate(-50%,-50%)}}
+@media(orientation:portrait) and (max-height:740px){body:has(#interaction.context-ready:not([hidden])) #minimap-panel:not(.map-expanded){visibility:hidden}}

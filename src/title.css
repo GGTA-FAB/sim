@@ -1,0 +1,48 @@
+#title-brand{display:none}body[data-title=true] #title-brand{display:block;position:fixed;left:7vw;top:9vh;z-index:121;pointer-events:none;color:#143e47;text-shadow:0 2px 18px #e4f4ef}#title-brand>span{font-size:clamp(44px,7vw,88px);font-weight:900;letter-spacing:-4px}#title-brand h2{font-size:clamp(24px,3vw,42px);margin:0 0 12px}#title-brand p{font-size:16px}#title-brand small{font-size:11px;letter-spacing:2px}body[data-title=true] #menu{background:linear-gradient(90deg,#deecec15,#e2eded10 45%,#294c5740);backdrop-filter:none;justify-content:flex-end;padding:4vh 5vw}body[data-title=true] .menu-card{width:380px;max-height:92dvh;padding:25px;background:#f4f7efed;box-shadow:0 16px 70px #173f4c44}body[data-title=true] .menu-card h1{display:none}body[data-title=true] .menu-card>.eyebrow{font-size:11px;margin:0 0 18px}body[data-title=true] #start{margin:12px 0;min-height:48px}body[data-title=true] #menu .career-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}body[data-title=true] #menu .career-actions button{min-height:44px;margin:0}body[data-title=true] #save-now,body[data-title=true] #daily-history,body[data-title=true] #export-save,body[data-title=true] #career-progress{display:none}body[data-title=true] #save-status{font-size:11px;line-height:1.5}.title-details summary{cursor:pointer;font-size:12px;min-height:44px;padding:12px 0}.title-details p{font-size:12px}.title-details .settings{display:flex}body[data-title=true] .topbar,body[data-title=true] #clock,body[data-title=true] #needs,body[data-title=true] #assistant-status,body[data-title=true] .hud-stack,body[data-title=true] #minimap-panel,body[data-title=true] #touch-controls,body[data-title=true] #interaction,body[data-title=true] #phone-toggle,body[data-title=true] .controls{visibility:hidden}body[data-title=true] #career-panel{z-index:150}#leadership-open{width:100%;min-height:44px;font-size:12px;padding:7px;background:#dbe8df}body[data-leadership=true] #assistant-status-list{max-height:132px;overflow:auto}.annual-result{padding:14px;background:#e4eee5;border:1px solid #b4caba;border-radius:10px;margin:10px 0}.annual-grade{font-size:42px;color:#1b6c58;font-weight:800}.rank-ladder{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.rank-ladder article{padding:10px;border:1px solid #b9c9be;border-radius:8px;font-size:12px}.rank-ladder article[data-current=true]{background:#d7eade;border-color:#39866a}.lead-decision{padding:12px;border:1px solid #c0d1c5;border-radius:8px;margin:10px 0}.lead-decision button{min-height:44px}
+@media(pointer:coarse),(max-width:700px){body[data-title=true] .menu-card{width:min(360px,48vw);padding:16px}body[data-title=true] #title-brand{left:4vw;top:9vh}#title-brand p{font-size:12px;max-width:210px}body[data-leadership=true] #assistant-status-list{max-height:88px}body[data-leadership=true] #assistant-auto-toggle{display:none}body[data-leadership=true] .assistant-heading{min-height:22px}.rank-ladder{grid-template-columns:1fr 1fr}}
+@media(orientation:portrait){body[data-title=true] #title-brand{top:4vh;left:7vw}body[data-title=true] #title-brand>span{font-size:48px}body[data-title=true] #title-brand p{display:none}body[data-title=true] #menu{align-items:flex-end;justify-content:center;padding:14px}body[data-title=true] .menu-card{width:100%;max-width:440px;max-height:58dvh;padding:18px}body[data-title=true] #title-brand h2{font-size:25px}}
+@media(max-height:380px) and (orientation:landscape){body[data-title=true] #menu{padding:8px 12px}body[data-title=true] .menu-card{max-height:calc(100dvh - 16px)}#title-brand small{display:none}}
+
+body[data-title=true] #debug,body[data-title=true] .debug-trigger{display:none!important}#entry-career{font-size:13px;line-height:1.6}
+
+.xsmc-logo{width:clamp(210px,29vw,410px);margin-bottom:15px}.xsmc-logo svg{display:block;width:100%;height:auto}@media(orientation:portrait){.xsmc-logo{width:240px;margin-bottom:8px}}
+
+#character-choice{margin:10px 0}#character-choice label{display:block;font-weight:700;margin-bottom:6px}#character-name{width:100%;min-height:44px;font-size:16px;padding:10px;border:1px solid #91b0a5;border-radius:8px;background:#fffdf6;color:#173f4c;box-sizing:border-box}#character-choice small{display:block;font-size:11px;margin-top:5px;color:#42635c}#entry-name:empty{display:none}#entry-name{font-weight:700;margin:8px 0}
+
+@media(orientation:landscape) and (max-height:500px){body[data-title=true] #module-choice{margin:8px 0;padding:10px}body[data-title=true] #module-description,body[data-title=true] #module-choice>small{display:none}body[data-title=true] .menu-card>.eyebrow{margin-bottom:8px}body[data-title=true] #character-choice{margin:8px 0}body[data-title=true] #character-choice small{font-size:10px}body[data-title=true] #start{margin:8px 0}}
+
+/* Game identity stays distinct from the fictional employer's building logo. */
+body[data-title=true] #title-brand{width:min(42vw,540px)}
+#title-brand .xsmc-logo{width:142px;margin-bottom:18px}
+body[data-title=true] #title-brand h2{font-size:clamp(70px,9vw,126px);font-weight:900;font-style:italic;line-height:.95;letter-spacing:-.065em;margin:0 0 14px;color:#123f46}
+body[data-title=true] #title-brand p{display:block;max-width:none}
+#title-brand .title-full-name{font-size:clamp(12px,1.25vw,17px);font-weight:800;letter-spacing:.1em;line-height:1.5;text-transform:uppercase;margin:0 0 8px;text-wrap:balance}
+#title-brand .title-subtitle{font-size:clamp(21px,2.5vw,31px);font-weight:700;letter-spacing:.12em;line-height:1.3;margin:0}
+#title-brand .title-slogan{border-left:3px solid #c27830;padding:2px 0 2px 12px;margin:24px 0 16px;font-size:clamp(12px,1.25vw,16px);line-height:1.7;text-wrap:balance}
+#title-brand small{font-size:10px;letter-spacing:1px}
+@media(orientation:portrait){
+ body[data-title=true] #title-brand{width:86vw;top:max(20px,env(safe-area-inset-top))}
+ #title-brand .xsmc-logo{width:118px;margin-bottom:10px}
+ body[data-title=true] #title-brand h2{font-size:64px;margin-bottom:9px}
+ #title-brand .title-full-name{font-size:11px;max-width:300px;letter-spacing:.08em;margin-bottom:6px}
+ #title-brand .title-subtitle{font-size:21px}
+ #title-brand .title-slogan{font-size:12px;margin:14px 0 0;padding-left:9px}
+ #title-brand small{display:none}
+}
+@media(orientation:landscape) and (max-height:500px){
+ body[data-title=true] #title-brand{top:6vh;width:39vw}
+ #title-brand .xsmc-logo{width:110px;margin-bottom:10px}
+ body[data-title=true] #title-brand h2{font-size:clamp(52px,8vw,76px);margin-bottom:9px}
+ #title-brand .title-full-name{font-size:11px;letter-spacing:.06em;margin-bottom:6px}
+ #title-brand .title-subtitle{font-size:21px}
+ #title-brand .title-slogan{font-size:12px;margin:16px 0 0;padding-left:9px}
+ #title-brand small{display:none}
+}
+
+.character-name-row{display:flex;align-items:stretch;gap:8px}
+.character-name-row #character-name{flex:1;min-width:0;width:0}
+#character-name-roll{flex:0 0 46px;width:46px;min-height:46px;padding:9px;margin:0;display:grid;place-items:center;border:1px solid #247a70;border-radius:9px;background:#176b60;color:#fff;touch-action:manipulation}
+#character-name-roll svg{width:26px;height:26px}
+#character-name-roll:hover{background:#10574e}
+#character-name-roll:active{background:#0d4a42}
+#character-name-roll:focus-visible{outline:3px solid #ca882f;outline-offset:2px}

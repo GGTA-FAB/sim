@@ -1,0 +1,4 @@
+import { REPAIR_GAMES } from '../data/repairGames.js';
+import { index,total,shuffled } from './helpers.js';
+const C=REPAIR_GAMES.connector;
+export const ConnectorGame={create:r=>({order:shuffled(C.count,r),selected:null,connected:Array(C.count).fill(false),checks:Array(C.count).fill(0),message:''}),input(s,a){if(a.action==='wire'&&index(a.index,C.count)){s.selected=a.index;s.message='';}if(a.action==='socket'&&index(a.index,C.count)){if(s.selected===null){s.message='先選左側線頭。';return;}if(s.selected!==a.index){s.message='編號不一致，請重新選擇插座。';return;}s.connected[a.index]=true;s.selected=null;s.message='已插接，按住測試確認。';}},update(s,dt,h){if(h?.action==='check'&&index(h.index,C.count)&&s.connected[h.index])s.checks[h.index]=Math.min(C.seconds,s.checks[h.index]+dt);},progress:s=>total(s.checks)/(C.count*C.seconds)};

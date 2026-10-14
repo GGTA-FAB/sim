@@ -1,0 +1,21 @@
+/* Persistent navigation and touch controls share space, independent of route settings. */
+#minimap-panel{position:fixed;left:28px;bottom:74px;width:240px;padding:8px;background:#f3f5eeeb;border:1px solid #aabbb3;border-radius:12px;z-index:4;box-shadow:0 4px 16px #163e3d18;pointer-events:auto}
+.minimap-heading{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#264c49;margin-bottom:5px}
+#minimap-panel #minimap{display:block;width:100%;height:auto;aspect-ratio:28/17;touch-action:manipulation}
+#minimap-panel .map-key{display:flex;justify-content:space-between;gap:4px;margin-top:5px;font-size:9px;color:#385c55}
+@media(pointer:coarse),(max-width:700px){
+ :root{--stick-size:clamp(144px,41vw,164px);--stick-bottom:max(24px,env(safe-area-inset-bottom))}
+ #joystick{left:max(18px,env(safe-area-inset-left));bottom:var(--stick-bottom);width:var(--stick-size);height:var(--stick-size);border:2px solid #567b788f;background:#f6f9ed80;box-shadow:inset 0 0 0 10px #f6f9ed24}
+ #joystick i{left:calc(50% - 28px);top:calc(50% - 28px);width:56px;height:56px;background:#396b68bd;border:2px solid #f5f8e8b0}
+ #minimap-panel{left:max(18px,env(safe-area-inset-left));bottom:calc(var(--stick-bottom) + var(--stick-size) + 18px);width:180px;padding:6px;border-radius:9px}
+ .hud-stack{max-height:calc(100dvh - 450px)}
+ #interaction{right:15px;bottom:155px;max-width:148px}
+ #interact{max-width:148px}
+ .look-hint{right:15px;bottom:214px}
+}
+@media(max-height:520px) and (orientation:landscape){
+ :root{--stick-size:144px;--stick-bottom:max(14px,env(safe-area-inset-bottom))}
+ #minimap-panel{left:calc(max(18px,env(safe-area-inset-left)) + var(--stick-size) + 18px);bottom:var(--stick-bottom);width:180px}
+ .hud-stack{max-height:calc(100dvh - 190px)}
+ #interaction{bottom:14px;right:77px}
+}

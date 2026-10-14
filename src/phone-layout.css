@@ -1,0 +1,39 @@
+/* Reserve an action strip beside the expanded phone; closing restores the normal HUD. */
+body:has(#phone:not([hidden])){--open-phone-width:294px;--open-phone-right:18px;--phone-action-right:calc(var(--open-phone-width) + var(--open-phone-right) + 12px)}
+body:has(#phone:not([hidden])) #phone{width:var(--open-phone-width);right:var(--open-phone-right)}
+body:has(#phone:not([hidden])) #interaction{left:auto;right:var(--phone-action-right);transform:none;z-index:6}
+body:has(#phone:not([hidden])) #run{right:var(--phone-action-right);min-height:44px;z-index:6}
+body:has(#phone:not([hidden])) #talk-nearby{left:auto;right:var(--phone-action-right);transform:none;min-height:44px;z-index:6}
+body:has(#phone:not([hidden])) .look-hint{visibility:hidden}
+@media(pointer:coarse),(max-width:700px){
+ body:has(#phone:not([hidden])){--open-phone-width:284px;--open-phone-right:max(12px,env(safe-area-inset-right))}
+ body:has(#phone:not([hidden])) #interaction{bottom:max(16px,env(safe-area-inset-bottom));max-width:148px}
+ body:has(#phone:not([hidden])) #interact{min-height:48px;min-width:0;width:100%;overflow-wrap:anywhere}
+ body:has(#phone:not([hidden])) #run{bottom:112px}
+ body:has(#phone:not([hidden])) #talk-nearby{bottom:170px;max-width:148px}
+}
+@media(max-width:600px) and (orientation:portrait){
+ body:has(#phone:not([hidden])){--open-phone-width:clamp(200px,calc(100vw - 168px),284px);--phone-strip:calc(100vw - var(--open-phone-width) - var(--open-phone-right) - 24px);--open-stick:min(144px,var(--phone-strip));--open-bottom:max(18px,env(safe-area-inset-bottom))}
+ body:has(#phone:not([hidden])) #phone{padding:9px 7px;gap:4px}
+ body:has(#phone:not([hidden])) .phone-tabs{gap:3px;flex-wrap:wrap}
+ body:has(#phone:not([hidden])) .phone-tabs button{padding:5px 2px!important}
+ body:has(#phone:not([hidden])) .phone-equipment-label{flex-wrap:wrap;gap:4px}
+ body:has(#phone:not([hidden])) #phone-content{padding:7px}
+ body:has(#phone:not([hidden])) #interaction{width:var(--phone-strip);max-width:144px;bottom:calc(var(--open-bottom) + var(--open-stick) + 12px)}
+ body:has(#phone:not([hidden])) #interact{padding:9px 7px;font-size:11px;max-height:104px;overflow:auto}
+ body:has(#phone:not([hidden])) #gown-hint{font-size:10px;padding:6px;max-height:52px;overflow:hidden}
+ body:has(#phone:not([hidden])) #run{bottom:calc(var(--open-bottom) + var(--open-stick) + 128px)}
+ body:has(#phone:not([hidden])) #talk-nearby{width:var(--phone-strip);max-width:144px;bottom:calc(var(--open-bottom) + var(--open-stick) + 184px);padding:7px;font-size:10px;max-height:60px;overflow:auto}
+ body:has(#phone:not([hidden])) #joystick{left:12px;width:var(--open-stick);height:var(--open-stick);bottom:var(--open-bottom)}
+ body:has(#phone:not([hidden])) #joystick i{width:44px;height:44px;left:calc(50% - 22px);top:calc(50% - 22px)}
+ body:has(#phone:not([hidden])) #minimap-panel{left:12px;width:var(--phone-strip);max-width:144px;bottom:calc(var(--open-bottom) + var(--open-stick) + 252px)}
+ body:has(#phone:not([hidden])) #minimap-panel .map-key{display:none}
+}
+@media(max-width:600px) and (orientation:portrait) and (max-height:760px){body:has(#phone:not([hidden])) #minimap-panel{visibility:hidden}}
+@media(max-height:520px){
+ body:has(#phone:not([hidden])) #handover-reminder{top:64px;left:160px;transform:none;width:calc(100vw - var(--phone-action-right) - 172px);max-width:300px}
+ body:has(#phone:not([hidden])){--open-phone-width:275px;--open-phone-right:max(12px,env(safe-area-inset-right))}
+ body:has(#phone:not([hidden])) #interaction{bottom:max(14px,env(safe-area-inset-bottom));max-width:148px}
+ body:has(#phone:not([hidden])) #run{bottom:120px}
+ body:has(#phone:not([hidden])) #talk-nearby{bottom:176px;max-width:148px}
+}

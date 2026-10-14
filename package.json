@@ -1,0 +1,21 @@
+{
+  "name": "ggta-sim",
+  "version": "0.9.29",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "build:pages": "vite build --outDir docs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "vite": "8.0.13"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

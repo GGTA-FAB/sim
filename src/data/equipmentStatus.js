@@ -1,0 +1,1 @@
+export const equipmentStatus=value=>({PROCESS:'加工中',PROCESS_CHECK:'製程確認中',WAIT_PROCESS:'等待製程',WAIT_FOUP:'等待 FOUP',LOAD:'上料中',UNLOAD:'卸料中',COMPLETE:'批次完成',IDLE:'待機',DOWN:'異常停機',PM:'保養中'}[value]??value);

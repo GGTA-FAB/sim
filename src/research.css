@@ -1,0 +1,15 @@
+.research-card{padding:13px;margin:10px 0;background:#fffdf6;border:1px solid #bdcbbd;border-radius:9px}.research-card>div{display:flex;justify-content:space-between;gap:10px;align-items:start}.research-card strong{font-size:13px}.research-card span{font-size:11px;white-space:nowrap;color:#2c735d}.research-card progress{width:100%;height:9px;accent-color:#21866e}.research-card small{display:block;color:#5e7065;font-size:11px;margin-top:6px}.research-card[data-complete=true]{background:#e3f0e6}.research-card[data-complete=true] button{opacity:.65}.research-card p{margin:8px 0}.research-intro{background:#dcece5;border-radius:8px;padding:10px}#life-panel [data-life=research],#life-panel [data-life=research-start]{background:#176b60;color:#fff}#life-panel [data-life=research-start]:disabled{background:#c5d5c9;color:#3e5b4d}.auto-repair-status{text-align:center;padding:25px 12px;line-height:1.8;background:#e1eee5;border-radius:10px}#auto-repair{background:#176b60;color:#fff}#activity-progress{width:100%}
+
+.research-location{color:#276d62;font-size:12px;border-left:3px solid #6b9b82;padding-left:8px}
+.pc-wallpaper{height:125px;position:relative;overflow:hidden;border:5px solid #25434c;border-radius:9px;background:linear-gradient(#98d6e8 45%,#367e99 46%);margin:10px 0}
+.pc-wallpaper:before{content:"";position:absolute;width:35px;height:35px;background:#f6dd96;border-radius:50%;top:10px;right:25px}
+.pc-wallpaper[data-wallpaper=mountain]{background:#b9d8d1}.pc-wallpaper[data-wallpaper=mountain]:before{width:170px;height:170px;top:35px;right:15%;border-radius:0;transform:rotate(45deg);background:#3f7568;box-shadow:-80px 55px #67968a}
+.pc-wallpaper[data-wallpaper=chicken]{background:#dfbf8b}.pc-wallpaper[data-wallpaper=chicken]:before{width:130px;height:65px;top:8px;right:calc(50% - 65px);border:17px solid #faf1d6;border-radius:50%;background:#a86c29}
+.pc-wallpaper span{position:absolute;bottom:0;left:0;right:0;padding:7px;background:#17363bbf;color:#fff;font-size:12px}
+.wallpaper-options,.claw-controls{display:flex;gap:7px;flex-wrap:wrap}.wallpaper-options button,.claw-controls button{min-height:44px;flex:1;margin:0!important}.wallpaper-options [aria-pressed=true]{background:#176b60!important;color:#fff!important}
+#claw-view{height:180px;position:relative;background:linear-gradient(#c8e6e9,#eff3dd);border:10px solid #487f96;border-bottom-width:24px;border-radius:8px;margin:12px 0;overflow:hidden;--claw-x:50%;--claw-y:15%}
+#claw-view:before{content:"";position:absolute;top:8%;left:7%;right:7%;height:4px;background:#748e98}
+#claw-view .claw-hook{position:absolute;left:var(--claw-x);top:var(--claw-y);transform:translateX(-50%);font-style:normal;font-size:34px;line-height:1;color:#364a52}
+#claw-view span{position:absolute;bottom:2%;left:20.75%;transform:translateX(-50%);font-size:40px;color:#d1a643;text-shadow:1px 2px #897744}
+#claw-view span:nth-of-type(2){left:50%;color:#7199af}#claw-view span:nth-of-type(3){left:79.25%;color:#b188a4}
+#claw-result{min-height:36px;font-size:13px;color:#315e5b}
