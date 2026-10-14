@@ -1,0 +1,21 @@
+/* Incoming calls: a short shake, then a clearly still rest between bursts. */
+#phone-toggle[data-ringing=true]{
+ --ring-scale:1.3;--ring-x:-12px;--ring-y:-12px;--ring-angle:6deg;
+ transform-origin:100% 100%;
+ transform:translate(var(--ring-x),var(--ring-y)) scale(var(--ring-scale));
+ animation:phone-ring-sway 2.8s ease-in-out infinite;
+}
+@keyframes phone-ring-sway{
+ 0%,32%,100%{transform:translate(var(--ring-x),var(--ring-y)) scale(var(--ring-scale)) rotate(0deg)}
+ 5%,15%,25%{transform:translate(var(--ring-x),var(--ring-y)) scale(var(--ring-scale)) rotate(calc(-1 * var(--ring-angle)))}
+ 10%,20%{transform:translate(var(--ring-x),var(--ring-y)) scale(var(--ring-scale)) rotate(var(--ring-angle))}
+}
+body:has(#menu:not([hidden])) #phone-toggle[data-ringing=true]{animation-play-state:paused}
+@media(pointer:coarse),(max-width:700px){
+ body:has(#phone[hidden]):has(#phone-toggle[data-ringing=true]) #run{translate:-40px 0}
+ /* In a work panel the phone becomes a compact top-corner answer button. */
+ body:is([data-hud-open=true],:has(:is(#life-panel,#assistant-dispatch,#repair,#detail,#lift-panel):not([hidden]))) #phone-toggle[data-ringing=true]{
+  --ring-scale:1.05;--ring-x:0px;--ring-y:4px;--ring-angle:3deg;transform-origin:100% 0;
+ }
+}
+@media(prefers-reduced-motion:reduce){#phone-toggle[data-ringing=true]{animation:none}}
