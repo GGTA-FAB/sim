@@ -46,3 +46,5 @@ body[data-title=true] #title-brand p{display:block;max-width:none}
 #character-name-roll:hover{background:#10574e}
 #character-name-roll:active{background:#0d4a42}
 #character-name-roll:focus-visible{outline:3px solid #ca882f;outline-offset:2px}
+
+.feedback-link{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding:10px 14px;margin:8px 0 12px;border:1px solid #7fa99e;border-radius:9px;background:#e4f0e9;color:#205d54;text-decoration:none;touch-action:manipulation}.feedback-link b{display:block;font-size:14px}.feedback-link small{display:block;margin-top:3px;font-size:11px;line-height:1.5;color:#496b62}.feedback-link>span:last-child{font-size:22px}.feedback-link:hover{background:#d6e9df}.feedback-link:focus-visible{outline:3px solid #ca882f;outline-offset:2px}

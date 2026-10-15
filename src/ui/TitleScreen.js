@@ -23,6 +23,7 @@ export class TitleScreen {
  const name=document.querySelector('#character-name');name.value=g.profile.name;document.querySelector('#character-choice').hidden=!g.nameSelection;name.oninput=()=>name.setCustomValidity('');document.querySelector('#character-name-roll').onclick=()=>{name.value=pickCharacterName(name.value.trim());name.dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('#character-name-hint').textContent=`骰到「${name.value}」！可再骰一次或自行修改。`;};name.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing){e.preventDefault();g.resume();}});
  const identity=document.createElement('p');identity.id='entry-name';identity.textContent=g.nameSelection?'':g.profile.name;document.querySelector('#entry-career').before(identity);
  document.querySelector('#entry-career').before(document.querySelector('#start'));
+ document.querySelector('#start').insertAdjacentHTML('afterend','<a id="bug-report" class="feedback-link" href="https://tally.so/r/q5ZL79" target="_blank" rel="noopener noreferrer" aria-label="Bug 回報：在新分頁開啟 Tally 表單"><span><b>Bug 回報</b><small>遇到問題？告訴我們 · 另開分頁填寫</small></span><span aria-hidden="true">↗</span></a>');
  document.body.dataset.title=String(this.active);
  }
  leave(){if(!this.active)return;this.active=false;document.body.dataset.title='false';document.querySelector('#start').textContent='繼續上班 →';this.g.hud.message(this.g.clock.day===1?`學長：${CAREER_INTRO}`:progressionText(this.g.progression,this.g.clock.day));}
