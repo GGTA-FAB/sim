@@ -3,7 +3,7 @@ import { MINIGAMES,repairProgress } from '../minigames/registry.js';
 // Task owns the serializable puzzle; held pointers are transient and never survive interruption.
 export class RepairSystem {
  constructor(alarms,bus){this.alarms=alarms;this.bus=bus;this.active=null;this.held=null;}
- start(id,mode='manual'){const t=this.alarms.get(id);if(t?.status!=='DOWN'||t.assistantId||!['manual','auto'].includes(mode)||(mode==='auto'&&!this.research?.allows(t.repair.type)))return false;this.release();this.mode=mode;this.active=t;this.bus.emit('REPAIR_STARTED',t);return true;}
+ start(id,mode='manual'){const t=this.alarms.get(id);if(t?.status!=='DOWN'||!['manual','auto'].includes(mode)||(mode==='auto'&&!this.research?.allows(t.repair.type)))return false;this.release();this.mode=mode;this.active=t;this.bus.emit('REPAIR_STARTED',t);return true;}
  suspend(){this.release();if(this.active)this.bus.emit('REPAIR_SUSPENDED',this.active);this.active=null;}
  release(){this.held=null;}
  hold(action){if(this.active&&this.mode!=='auto')this.held=action;}

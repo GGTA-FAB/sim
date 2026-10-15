@@ -35,9 +35,9 @@ for(let i=this.receipts.length-1;i>=0;i--)if(g.elapsed>=this.receipts[i].until){
    row.querySelector('.task-title').textContent=title;row.querySelector('.task-meta').textContent=meta;row.querySelector('.task-select').setAttribute('aria-label',`${title}，${meta}，點擊導航`);
   }
   this.taskBoard.update();
-  const task=g.alarms.get(g.detailEquipment),wrongFloor=task?.status==='DOWN'&&Math.abs(g.player.position.y-(task.y??6))>.5;const location=document.querySelector('#repair-location');location.hidden=!wrongFloor;location.textContent=`導航至 ${task?.y===0?'2F Sub FAB':'3F FAB'} 檢修點`; document.querySelector('#start-repair').hidden=!!task?.assistantId||task?.status!=='DOWN'||Math.abs(g.player.position.y-(task.y??6))>.5;document.querySelector('#notify-process').hidden=task?.status!=='WAIT_PROCESS';
+  const task=g.alarms.get(g.detailEquipment),wrongFloor=task?.status==='DOWN'&&Math.abs(g.player.position.y-(task.y??6))>.5;const location=document.querySelector('#repair-location');location.hidden=!wrongFloor;location.textContent=`導航至 ${task?.y===0?'2F Sub FAB':'3F FAB'} 檢修點`; document.querySelector('#start-repair').hidden=task?.status!=='DOWN'||Math.abs(g.player.position.y-(task.y??6))>.5;document.querySelector('#notify-process').hidden=task?.status!=='WAIT_PROCESS';
   document.querySelector('#auto-repair').hidden=document.querySelector('#start-repair').hidden||!g.research.allows(task?.repair.type);
-  if(task?.status==='DOWN')document.querySelector('#start-repair').textContent=`修機 · ${REPAIR_GAMES[task.repair.type].name}`;
+  if(task?.status==='DOWN')document.querySelector('#start-repair').textContent=`${task.assistantId?'自行接手維修':'修機'} · ${REPAIR_GAMES[task.repair.type].name}`;
   this.repairUI.update();
  }
 }

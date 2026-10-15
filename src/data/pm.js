@@ -1,5 +1,5 @@
 export const ASSISTANT_COUNT=3;
-export const PM_BALANCE={minCount:1,maxCount:3,minAssistants:1,maxAssistants:3,durationMin:1800,durationMax:3000,checkAt:.45,incidentAt:.7,incidentChance:.16,recheckSeconds:90,callRepeat:2400,repairSeconds:240,walkSpeed:4.8,gownSeconds:1.2,viewDistance:65};
+export const PM_BALANCE={minCount:1,maxCount:3,minAssistants:1,maxAssistants:3,durationMin:1800,durationMax:3000,checkAt:.45,incidentAt:.7,incidentChance:.16,recheckSeconds:90,callRepeat:2400,repairSeconds:240,walkSpeed:4.8,repathSeconds:4,workArrivalRadius:1.4,gownSeconds:1.2,viewDistance:65};
 export const PM_STATES={PENDING:'待指派',TRAVELLING:'助理前往中',WAIT_START:'等待開工確認',RUNNING:'施工中',WAIT_CHECK:'等待重要步驟確認',WAIT_INCIDENT:'異常 · 等待工程師',RECHECK:'助理自行排除／重查中',WAIT_CLOSE:'完成 · 等待現場結案',CLOSED:'已結案'};
 export const ASSISTANT_EVENTS=[
  {id:'revision',text:'學長，零件袋上的 Revision 跟工單不一樣。我還沒裝，可以幫我確認嗎？',instruction:'先核對工單，改用正確 Revision',reply:'收到，已找到正確版本。我會重新核對再裝。'},

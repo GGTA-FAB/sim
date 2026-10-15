@@ -10,7 +10,7 @@ export class AssistantAutoWork {
  get unlocked(){return this.research.complete(AUTO_WORK.projectId);}
  get enabled(){return this.unlocked&&this.research.autoDispatchEnabled;}
  toggle(){if(!this.unlocked)return;this.research.autoDispatchEnabled=!this.research.autoDispatchEnabled;this.nextCheck=0;this.bus.emit('AUTO_WORK_CHANGED',this.enabled);}
- eligible(t){return !!t.alarm&&t.status==='DOWN'&&!t.assistantId&&this.alarms.owned.includes(t.id)&&!this.alarms.reassigned.has(t.id)&&this.repair.active!==t&&this.pm.canHelp(t);}
+ eligible(t){return !!t.alarm&&t.status==='DOWN'&&!t.assistantId&&!t.manualTakeover&&this.alarms.owned.includes(t.id)&&!this.alarms.reassigned.has(t.id)&&this.repair.active!==t&&this.pm.canHelp(t);}
  get waiting(){let n=0;for(const t of this.tasks.tasks.values())if(this.eligible(t))n++;return n;}
  update(){
   if(this.clock.seconds<this.nextCheck)return;this.nextCheck=this.clock.seconds+AUTO_WORK.pollSeconds;
